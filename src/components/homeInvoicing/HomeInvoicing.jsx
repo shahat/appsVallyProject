@@ -377,8 +377,8 @@ export default function HomeInvoicing() {
               </p>
               <div className="gitInTouchImage w-100 w-md-75">
                 <img
-                  src="/public/resourcesImages/62630dad-5fc0-415f-8032-16f01c25a42a.png"
-                  alt=""
+                  src={resourcesImages[5]}
+                  alt="desk image"
                   className="w-100"
                 />
               </div>
