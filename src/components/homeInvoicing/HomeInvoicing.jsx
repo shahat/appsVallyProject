@@ -4,6 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import PaginationButton from "../reuseable/paginationButton/PaginationButton";
 import { HiOutlineArrowSmRight } from "react-icons/hi";
 import DemoForm from "../reuseable/DemoForm/DemoForm";
+import { resourcesImages } from "../../public/resourcesImages/resourcesImages";
 export default function HomeInvoicing() {
   // =========== static Data ================
   const productsData = [
@@ -72,23 +73,23 @@ export default function HomeInvoicing() {
   ];
   const resources = [
     {
-      img: "/public/resourcesImages/1.webp",
+      img: resourcesImages[0],
       title: "Case Studies",
       para: "Some stories to showcase how we've tackled business complexities",
     },
     {
-      img: "../../../public/resourcesImages/2.webp",
+      img: resourcesImages[1],
       title: "Blogs",
       para: "Read our exhaustive materials on e-invoicing in KSA",
     },
     {
-      img: "../../../public/resourcesImages/3.webp",
+      img: resourcesImages[2],
       title: "Webinar",
       para:
         "Weekly sessions to keep you posted on all the latest norms by ZATCA",
     },
     {
-      img: "../../../public/resourcesImages/4.webp",
+      img: resourcesImages[3],
       title: "Press",
       para: "ClearTax in the news and press releases",
     },

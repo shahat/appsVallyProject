@@ -1,23 +1,23 @@
 import React from "react";
 import "./homeBrands.scss";
-
+import { clientImages } from "../../../public/clients/clientImages";
 export default function HomeBrands() {
   const clients = {
     images1: [
-      "../../../public/clients/client1.jpg",
-      "../../../public/clients/client2.jpg",
-      "../../../public/clients/client3.png",
-      "../../../public/clients/client4.jpg",
-      "../../../public/clients/client5.jpg",
-      "../../../public/clients/client6.jpg",
+      clientImages[0],
+      clientImages[1],
+      clientImages[2],
+      clientImages[3],
+      clientImages[4],
+      clientImages[5],
     ],
     images2: [
-      "../../../public/clients/client7.jpg",
-      "../../../public/clients/client8.jpg",
-      "../../../public/clients/client9.jpg",
-      "../../../public/clients/clients10.jpg",
-      "../../../public/clients/clients11.jpg",
-      "../../../public/clients/clients12.jpg",
+      clientImages[6],
+      clientImages[7],
+      clientImages[8],
+      clientImages[9],
+      clientImages[10],
+      clientImages[11],
     ],
   };
   return (
