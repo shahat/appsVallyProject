@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import PaginationButton from "../reuseable/paginationButton/PaginationButton";
 import { HiOutlineArrowSmRight } from "react-icons/hi";
 import DemoForm from "../reuseable/DemoForm/DemoForm";
-import { resourcesImages } from "../../public/resourcesImages/resourcesImages";
+import { resourcesImages } from "../../../public/resourcesImages/resourcesImages";
 export default function HomeInvoicing() {
   // =========== static Data ================
   const productsData = [
