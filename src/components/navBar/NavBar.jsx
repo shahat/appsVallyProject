@@ -42,9 +42,7 @@ export default function NavBar() {
     <>
       <nav className="navbar bg-body-white sticky bg-white top-0">
         <div className="container">
-          <a className="navbar-brand fw-bold fs-3" href="#">
-            AVTax
-          </a>
+          <a className="navbar-brand fw-bold fs-3" href="#"></a>
           <div className="navLinksContainer d-none d-lg-block">
             <ul className="navbar-menu ">
               <li
