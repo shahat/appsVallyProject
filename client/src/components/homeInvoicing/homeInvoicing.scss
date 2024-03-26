@@ -1,0 +1,84 @@
+.homeInvoicing{
+    padding:0 ;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+
+.invoicingListIcon{
+    color: #4adf93 !important;
+    display: inline-block;
+    margin-right: 10px;
+}
+}.offeringProductsCard{
+    overflow: hidden !important;
+}
+.PaginationButton{
+ display: inline-block;
+ position: relative;
+ width: 50px;
+ height: 50px;   
+ border-radius: 50%;
+   background-color: #d6d6d668;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 16px;
+    &:hover{
+        background-color: #1678FB;
+        color:white
+    }
+    .PaginationButtonIcon{
+           display: inline-block;
+           position: absolute;
+           top:50%;
+           left: 50%;
+           transform: translate(-50%,-50%);
+           
+    }
+}
+.resources {
+    .resourceCard {
+    padding: 16px;
+      margin-bottom: 20px;
+      border-radius: 10px !important;
+      background-color: black;
+      color : white;
+      transition: transform 0.3s ease;
+      &:hover {
+        transform: scale(1.05);
+      }
+      .resourceCardImg{
+        width: 100%;
+        height: 50%;}
+    }
+  }
+  @media (max-width: 768px) {
+    .resources {
+      .row {
+        flex-wrap: wrap;
+      }
+    
+    }
+  }
+  .gitInTouchForm{
+   padding:20px 0 ;
+    margin: 0 auto;
+    color : white !important;
+    border-radius: 20px;
+    background: linear-gradient(90deg, rgba(0,0,0,1) 73%, rgba(0,0,0,0.7887487758775386) 100%);
+  }
+  .invoicingParaIconContainer{
+    padding-left: 20px;
+  }
+@media screen and (max-width: 768px) {
+  
+  .invoicingTitle{
+    padding-left:15px;
+    font-size: 26px;
+  }
+  invoicingPara{
+
+    padding-left:15px;
+    font-size: 12px;
+  }
+
+}

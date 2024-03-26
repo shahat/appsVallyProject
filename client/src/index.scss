@@ -1,0 +1,21 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: "Roboto", sans-serif;
+  // outline: 1px solid #f00 !important;
+}
+body {
+  background-color: #000000;
+  overflow-y: scroll;
+  overflow-x: hidden !important;
+}
+:root {
+  --white: #fff;
+  --nav_height: 50px; 
+  --small_screen: 480px;
+  --medium_screen: 768px;
+  --large-screen: 1024px;
+  --extra_large_screen: 1200px;
+}
+

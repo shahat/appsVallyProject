@@ -1,0 +1,36 @@
+.main {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    justify-content: start;
+
+
+    .sideBarContainer {
+        position: sticky;
+        height: calc(100vh - 50px);
+        top: 50px;
+        left: 0;
+
+        .link {
+            text-decoration: none;
+            color: inherit;
+        }
+    }
+    .content {
+        width: 80%;
+    }
+}
+
+// Media query for small screens
+@media only screen and (max-width: 767px) {
+    .main .sideBarContainer {
+        width: 80px; // Set sidebar width to 80px for small screens
+    }
+}
+
+// Media query for large screens
+@media only screen and (min-width: 768px) {
+    .main .sideBarContainer {
+        width: 20vw; // Set sidebar width to 20vw for large screens
+    }
+}
