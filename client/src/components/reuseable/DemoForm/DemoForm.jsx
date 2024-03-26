@@ -1,5 +1,6 @@
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useState } from "react";
-import { toast, ToastContainer } from "react-toastify";
 import instance from "../../../config/instance";
 import "./demoForm.scss";
 
@@ -33,8 +34,10 @@ export default function DemoForm() {
       if (response.status !== 201) {
         throw new Error(response.data); // Throw the response data directly
       }
+
       toast.success(response.data);
     } catch (error) {
+      console.log(error.message);
       toast.error(error.message || "An error occurred");
     }
   };
@@ -162,12 +165,6 @@ export default function DemoForm() {
       <button type="submit" className="btn btn-primary fw-bold w-100">
         Book a demo
       </button>
-      <ToastContainer
-        className="toast"
-        // bottom-right
-        autoClose={10000}
-        style={{ zIndex: 10000 }}
-      />
     </form>
   );
 }
