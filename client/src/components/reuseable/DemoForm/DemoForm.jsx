@@ -24,6 +24,7 @@ export default function DemoForm() {
   };
 
   // Handle form submission
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
@@ -34,7 +35,7 @@ export default function DemoForm() {
       }
       toast.success(response.data);
     } catch (error) {
-      console.log(error);
+      toast.error(error.message || "An error occurred");
     }
   };
 
@@ -161,7 +162,12 @@ export default function DemoForm() {
       <button type="submit" className="btn btn-primary fw-bold w-100">
         Book a demo
       </button>
-      <ToastContainer />
+      <ToastContainer
+        className="toast"
+        // bottom-right
+        autoClose={10000}
+        style={{ zIndex: 10000 }}
+      />
     </form>
   );
 }

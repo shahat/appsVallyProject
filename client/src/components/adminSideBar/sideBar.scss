@@ -2,7 +2,7 @@
 .sidebar{
     .sideBareWarper{
         background-color: rgba(196, 196, 196, 0.192);
-        height: 100vh;
+        height: calc(100vh - 50px) ;
         overflow: scroll;
 }
     .sidebarTitle{

@@ -30,7 +30,7 @@ const createCustomer = async (req, res) => {
       res.status(500).json(err);
     }
   } else {
-    res.status(401).json("cutomer is already exist");
+    res.status(401).json({ message: "customer already exists" });
   }
 };
 

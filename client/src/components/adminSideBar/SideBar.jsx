@@ -115,7 +115,7 @@ export default function SideBar() {
 
   return (
     <div className="sidebar  d-flex flex-column justify-content-center">
-      <div className="sideBareWarper ">
+      <div className="sideBareWarper overflow-scroll">
         {sideBarItems.map((item, index) => (
           <SideBarItem key={index} sideBarItem={item} />
         ))}
