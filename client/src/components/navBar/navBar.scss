@@ -1,11 +1,14 @@
 .navbar{
-  height: 10vh;
-  position: sticky !important;
-  background-color: #F9FAFB !important;
+  position: fixed !important;
+  background-color: transparent !important;
+  height: 
   top: 0;
   left: 0;
+  right:0;
   z-index: 1000;
+  color:white ; 
 // ================ NavbarMenu ===============
+
   .navbar-menu {
     display: flex;
     align-items: center;
@@ -17,8 +20,8 @@
     font-size: medium;
     font-weight: 400;
     .nav-link {
-      position: relative; // Ensure proper positioning for dropdowns
-      color: inherit; // Preserve link color
+      position: relative; 
+      color: inherit; 
       .rotate {
         transition: transform 0.3s ease;
       }

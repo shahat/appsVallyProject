@@ -68,7 +68,7 @@ export default function NavBar() {
             <a className="navbar-brand m-0 " href="/"></a>
             <a className="text-decoration-none  " href="/">
               {" "}
-              <h1 className="m-0 p-0 fs-5 text-dark">AVTax</h1>
+              <h1 className="m-0 p-0 fs-5 text-white fw-bold ">avtax</h1>
             </a>
           </div>
           <div className="navLinksContainer d-none d-lg-block">
