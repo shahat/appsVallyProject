@@ -1,0 +1,13 @@
+.weOfferMuchMorePara{
+    font-weight: 400;
+    color: var(--main_text_color) !important;
+}
+@media screen and (max-width: 768px) {
+    .weOfferMuchMoreContent{
+        width: 80% !important; 
+        .weOfferMuchMorePara{
+        font-size: 16px !important;
+    }
+    }
+   
+}

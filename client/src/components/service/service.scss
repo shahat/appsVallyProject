@@ -1,0 +1,61 @@
+.service-item {
+    position: relative;
+    padding: 45px 30px;
+    background: var(--light);
+    color : var(--main_heading_color) !important;
+    overflow: hidden;
+    transition: .5s;
+    &:hover {
+        margin-top: -15px;
+        padding-bottom: 60px;
+        background: var(--primary);
+        color: var(--light) !important;
+    } 
+    .service-icon {
+    margin: 0 auto 20px auto;
+    width: 100px;
+    height: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--light);
+    background: url(../../../public/serviceIcon/pay.png) center center no-repeat;
+    background-size: contain;
+    transition: .5s;
+}
+&:hover .service-icon {
+    color: var(--dark);
+    background: url(../../../public/serviceIcon/dashboard.png) center center no-repeat;
+    background-size: contain;
+}
+ h5,
+p {
+    transition: .5s;
+}
+&:hover h5,
+&:hover p {
+    color: #FFFFFF;
+}
+ a.btn {
+    position: absolute;
+    bottom: -40px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: var(--primary);
+    background: #FFFFFF;
+    border-radius: 40px 40px 0 0;
+    transition: .5s;
+    z-index: 1;
+}
+
+ a.btn:hover {
+    color: var(--dark);
+    background: var(--secondary);
+}
+
+&:hover a.btn {
+    bottom: 0;
+}
+}
+
+

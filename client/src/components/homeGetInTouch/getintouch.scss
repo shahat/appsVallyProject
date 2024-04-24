@@ -1,0 +1,36 @@
+.gitInTouchForm{
+    padding:20px 0 ;
+     margin: 0 auto;
+     border-radius: 20px;
+     border: 1px solid rgba(190, 190, 190, 0.763);
+   }
+  .gitInTouch{
+ .GetInTouchContent{
+    
+      font-weight: 400;
+      color:var(--main_text_color) !important;
+     
+
+   } 
+   .gitInTouchImage{
+    max-width:450px !important;
+    img{
+      width: 100%;
+      height: 100%;
+    }
+   }      
+  }     
+  @media screen and (max-width: 768px) {
+
+    .GetInTouchContent{
+ 
+    font-size: 16px !important ;  
+    text-align: center !important;    
+    }
+    .gitInTouchImage{
+      max-width:300px !important;
+     }  
+
+}
+
+

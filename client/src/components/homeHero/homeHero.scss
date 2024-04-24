@@ -1,0 +1,47 @@
+.homeHero{
+    width: 100vw;
+    min-height: 100vh;
+    overflow-y: hidden !important;
+    overflow-x: hidden !important;
+    position: relative ; 
+    color:white !important;
+    padding-top: 70px; 
+    background-image:  url("../../../public/Riyadh_Skyline.jpg") ;
+    background-size:cover;
+.homeHeroOverlay{
+  position: absolute;
+  top: 0;
+  left:0;
+  width: 100vw;
+  min-height: 100vh; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: rgba($color: #00000054, $alpha: .3);
+}
+.heroFormContainer{
+  padding-top: 20px;
+}
+}
+@media (max-width: 768px) { // For screens smaller than 'md'
+    .heroContent {
+      width: 100%;
+    }
+    .heroFormContainer{
+         display: none;       
+    }
+  }
+  @media (min-width: 768px) { // For screens smaller than 'md'
+    .heroContent {
+      width: 50% !important;
+    }
+    .heroFormContainer{
+           width:50% !important;     
+    }
+  }
+  @media (min-width: 920px) { // For screens smaller than 'md'
+    .heroFormContainer{
+           max-width: 420px;     
+    }
+
+  }
