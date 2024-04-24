@@ -1,64 +1,23 @@
-import React from "react";
+import { clients, invoicesMarket } from "../../assets/clients";
 import "./homeBrands.scss";
-import { clientImages } from "../../../public/clients/clientImages";
+import { facts } from "../../assets/facts";
+import SectionHeading from "../reuseable/sectionHeading/SectionHeading";
 export default function HomeBrands() {
-  const clients = {
-    images1: [
-      clientImages[0],
-      clientImages[1],
-      clientImages[2],
-      clientImages[3],
-      clientImages[4],
-      clientImages[5],
-    ],
-    images2: [
-      clientImages[6],
-      clientImages[7],
-      clientImages[8],
-      clientImages[9],
-      clientImages[10],
-      clientImages[11],
-    ],
-  };
-  const invoicesMarket = [
-    {
-      title: " $300B",
-      content: "Worth e-invoices generated annually",
-    },
-    {
-      title: "125M",
-      content: "e-Invoices generated annually",
-    },
-    {
-      title: "3M",
-      content: "man hours saved per month",
-    },
-  ];
   return (
-    <div className="homeBrands mt-5">
-      <h2
-        id="clients"
-        className="pt-5 text-light text-center text-capitalize fs-1"
-        style={{
-          fontWeight: "700",
-          lineHeight: "67px",
-          letterSpacing: "2px",
-        }}
-      >
-        Trusted by 200+ global brands
-      </h2>
-      {/* ====================== carousel  section ====================== */}
-      <section className="brands d-flex justify-content-center m-5">
+    <>
+      {/* ====================== Brands carousel  section ====================== */}
+
+      <section className="brands  " id="clients">
+        <SectionHeading content="Trusted by 200+ global brands" />
         <div
           id="carouselExampleSlidesOnly"
           className="carousel slide container bg-white border-5 "
-          style={{ borderRadius: "10px", height: "144px" }}
           data-bs-ride="carousel"
           data-bs-interval="2000"
         >
           <div className="carousel-inner">
             <div className="carousel-item active ">
-              <div className=" carousel-item-Container d-flex    justify-content-around align-items-center">
+              <div className=" carousel-item-Container d-flex justify-content-around align-items-center">
                 {clients.images1.map((image, index) => (
                   <div
                     key={`images1-${index}`}
@@ -95,23 +54,29 @@ export default function HomeBrands() {
         </div>
       </section>
 
-      {/* ====================== other section ====================== */}
-      <section className="invoiceMarket mt-5 pt-5">
-        <div className="container">
-          <div className="row justify-content-center align-items-center text-center text-white">
-            {invoicesMarket.map((item, index) => (
-              <div key={index} className="col-md-4" data-aos="fade-up">
-                <div className="invoiceMarketSection">
-                  <h3 className="fs-1 fw-bolder">
-                    {item.title} <span style={{ color: "#4adf93" }}>+</span>
-                  </h3>
-                  <p style={{ color: "#C7C8CC" }}>{item.content}</p>
-                </div>
+      {/* ====================== Facts ====================== */}
+
+      <section className="companyFacts w-100 mt-5 pt-5 ">
+        <div className="factOverlay"></div>
+        <div className="container-xxl  fact py-5 ">
+          <div className="row g-4">
+            {facts.map((item, index) => (
+              <div key={index} className="col-6 col-lg-3 text-center ">
+                <i
+                  className={`${item[2]} fa-2x  text-white mb-3`}
+                  data-aos="fade-right"
+                />
+                <h3 className="text-white mb-2" data-aos="fade-up">
+                  {item[1]}
+                </h3>
+                <p className="text-white mb-0" data-aos="fade-left">
+                  {item[0]}
+                </p>
               </div>
             ))}
           </div>
         </div>
       </section>
-    </div>
+    </>
   );
 }

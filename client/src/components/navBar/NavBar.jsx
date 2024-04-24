@@ -1,132 +1,176 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { IoIosArrowUp } from "react-icons/io";
+import { PiList } from "react-icons/pi";
+import { company } from "../../assets/company";
+
 import "./navBar.scss";
+import { Link } from "react-router-dom";
 
 export default function NavBar() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [scrollPosition, setScrollPosition] = useState(0);
+  const [initialLoad, setInitialLoad] = useState(true);
   const [aboutUsDropdownVisible, setAboutUsDropdownVisible] = useState(false);
   const [productsDropdownVisible, setProductsDropdownVisible] = useState(false);
   const [servicesDropdownVisible, setServicesDropdownVisible] = useState(false);
-  const [scrollPosition, setScrollPosition] = useState(0);
-  const [initialLoad, setInitialLoad] = useState(true); // Flag for initial load
 
   useEffect(() => {
-    // Store the current scroll position when the component mounts
     const handleScroll = () => {
       setScrollPosition(window.scrollY);
+      setIsScrolled(window.pageYOffset === 0 ? false : true);
     };
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const toggleAboutUsDropdown = () => {
-    setAboutUsDropdownVisible(!aboutUsDropdownVisible);
-  };
-
-  const toggleProductsDropdown = () => {
-    setProductsDropdownVisible(!productsDropdownVisible);
-  };
-
-  const toggleServicesDropdown = () => {
-    setServicesDropdownVisible(!servicesDropdownVisible);
-  };
-
   const handleSidebarClose = () => {
-    // Restore the scroll position when closing the sidebar
     window.scrollTo(0, scrollPosition);
   };
 
+  const handleDropdownToggle = (dropdown, setDropdown) => {
+    setDropdown((prevState) => !prevState);
+  };
+
   useEffect(() => {
-    // After the initial load, setInitialLoad to false
     if (initialLoad) {
       setInitialLoad(false);
     }
   }, [initialLoad]);
 
-  const company = {
-    aboutUs: ["Company", "Customer", "Press"],
-    products: [
-      "Excel eInvoice App",
-      "Quickbooks Online eInvoice Integration App",
-      "Quickbooks Desktop eInvoice Integration App",
-      "Zoho",
-      "Xero",
-      "QuixcelERP, POS and Mobile POS",
-    ],
-    services: [
-      "QuixcelInvoiceSystem [ coming soon ]",
-      "Dashboard to monitor invoices & generate reports [ coming soon ]",
-      "Custom Integration services",
-      "API services for ETA, ZATCA, and JOFOTARA",
-    ],
-  };
-
   return (
     <>
-      <nav className="navbar bg-body-white sticky bg-white top-0">
-        <div className="container">
-          <div className="d-flex justify-content-start align-items-center">
-            <a className="navbar-brand m-0 " href="/"></a>
-            <a className="text-decoration-none  " href="/">
-              {" "}
-              <h1 className="m-0 p-0 fs-5 text-white fw-bold ">avtax</h1>
-            </a>
-          </div>
-          <div className="navLinksContainer d-none d-lg-block">
+      <nav className={isScrolled ? "navbar scrolled" : "navbar"}>
+        <div className="container p-0  d-flex align-items-center">
+          <a className="text-decoration-none  " href="/">
+            <h1 className="m-0 p-0 fs-3 text-white fw-bolder ">avtax</h1>
+          </a>
+          <div className="d-none d-lg-block">
             <ul className="navbar-menu">
               <li
-                className="nav-item active"
-                onMouseEnter={() => setAboutUsDropdownVisible(true)}
-                onMouseLeave={() => setAboutUsDropdownVisible(false)}
-                onClick={toggleAboutUsDropdown}
+                className="nav-item  about-dropdown"
+                onMouseEnter={() =>
+                  handleDropdownToggle(
+                    aboutUsDropdownVisible,
+                    setAboutUsDropdownVisible
+                  )
+                }
+                onMouseLeave={() =>
+                  handleDropdownToggle(
+                    aboutUsDropdownVisible,
+                    setAboutUsDropdownVisible
+                  )
+                }
               >
-                <a className="nav-link" href="#">
-                  About us{" "}
+                <a className="nav-link fw-bold">
+                  About us
                   <span className="sr-only">
                     <IoIosArrowUp
                       className={aboutUsDropdownVisible ? "rotate" : ""}
                     />
                   </span>
                 </a>
-                {aboutUsDropdownVisible && (
-                  <div className="dropdown-menu position-absolute">
-                    {company.aboutUs.map((item, index) => (
-                      <a className="dropdown-item p-1 m-0" href="#" key={index}>
-                        {item}
-                      </a>
-                    ))}
-                  </div>
-                )}
-              </li>
-              <li className="nav-item active postion-relative">
-                <a
-                  className="nav-link"
-                  href="#"
-                  onClick={toggleProductsDropdown}
+
+                <div
+                  className={`dropdown-menu ${
+                    aboutUsDropdownVisible ? "show" : ""
+                  }`}
                 >
+                  {company.aboutUs.map((item, index) => (
+                    <Link
+                      className="dropdown-item p-1 m-0 fw-bold"
+                      to="/"
+                      key={"about" + index}
+                    >
+                      <img
+                        src={item[0]}
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          display: "inline-block",
+                          marginRight: "7px",
+                          objectFit: "contain",
+                        }}
+                        alt="product image"
+                      />
+                      {item[1]}
+                    </Link>
+                  ))}
+                </div>
+              </li>
+
+              {/* ========= products dropdown ========= */}
+              <li
+                className="nav-item  product-dropdown cursor-pointer"
+                onMouseEnter={() =>
+                  handleDropdownToggle(
+                    productsDropdownVisible,
+                    setProductsDropdownVisible
+                  )
+                }
+                onMouseLeave={() =>
+                  handleDropdownToggle(
+                    productsDropdownVisible,
+                    setProductsDropdownVisible
+                  )
+                }
+              >
+                <a className="nav-link fw-bold">
                   Products
-                  <span className="sr-only ">
+                  <span className="sr-only">
                     <IoIosArrowUp
                       className={productsDropdownVisible ? "rotate" : ""}
                     />
                   </span>
                 </a>
-                {productsDropdownVisible && (
-                  <div className="dropdown-menu position-absolute">
-                    {company.products.map((item, index) => (
-                      <div className="dropdown-item p-1 m-0" key={index}>
-                        {item}
-                      </div>
-                    ))}
-                  </div>
-                )}
+
+                <div
+                  className={`dropdown-menu ${
+                    productsDropdownVisible ? "show" : ""
+                  }`}
+                >
+                  {company.products.map((item, index) => (
+                    <Link
+                      className="dropdown-item p-1 m-0 fw-bold"
+                      to={`/product/${item[1]}`}
+                      key={"product" + index}
+                      state={{
+                        type: "product",
+                        serviceProductDetails: item[2],
+                      }}
+                    >
+                      <img
+                        src={item[0]}
+                        style={{
+                          width: "20px",
+                          height: "20px",
+                          display: "inline-block",
+                          marginRight: "7px",
+                          objectFit: "contain",
+                        }}
+                        alt="product image"
+                      />
+                      {item[1]}
+                    </Link>
+                  ))}
+                </div>
               </li>
               {/* ========= services dropdown ========= */}
-              <li className="nav-item active services-dropdown">
-                <a
-                  className="nav-link"
-                  href="#"
-                  onClick={toggleServicesDropdown}
-                >
+              <li
+                className="nav-item  services-dropdown"
+                onMouseEnter={() =>
+                  handleDropdownToggle(
+                    servicesDropdownVisible,
+                    setServicesDropdownVisible
+                  )
+                }
+                onMouseLeave={() =>
+                  handleDropdownToggle(
+                    servicesDropdownVisible,
+                    setServicesDropdownVisible
+                  )
+                }
+              >
+                <a className="nav-link fw-bold ">
                   Services{" "}
                   <span className="sr-only">
                     <IoIosArrowUp
@@ -135,37 +179,66 @@ export default function NavBar() {
                   </span>
                 </a>
                 {servicesDropdownVisible && (
-                  <div className="dropdown-menu position-absolute">
+                  <div className="dropdown-menu ">
                     {company.services.map((item, index) => (
-                      <div className="dropdown-item p-1 m-0" key={index}>
-                        {item}
-                      </div>
+                      <Link
+                        className="dropdown-item p-1 m-0 fw-bold"
+                        to={`/service/${item[1]}`}
+                        key={"service" + index}
+                        state={{
+                          type: "service",
+                          serviceProductDetails: item[2],
+                        }}
+                      >
+                        <img
+                          src={item[0]}
+                          style={{
+                            width: "20px",
+                            height: "20px",
+                            display: "inline-block",
+                            marginRight: "7px",
+                            objectFit: "contain",
+                          }}
+                          alt="product image"
+                        />
+                        {item[1]}
+                      </Link>
                     ))}
                   </div>
                 )}
               </li>
               <li className="nav-item active">
-                <a className="nav-link" href="#clients">
+                <a className="nav-link fw-bold" href="#clients">
                   Clients
                 </a>
               </li>
               <li className="nav-item active">
-                <a className="nav-link" href="#">
+                <a className="nav-link fw-bold" href="#">
                   Contact us
                 </a>
               </li>
             </ul>
           </div>
 
-          <div className="buttonContainer d-none d-md-block">
-            <button className="btn btn-primary fw-bold">
-              <a href="#BookADemo" className="text-decoration-none text-white">
+          <div className="langAndDemo d-none d-lg-flex align-itmes-center">
+            <button
+              className=" btn btn-primary px-2 py-1 fw-medium"
+              type="submit"
+            >
+              <a
+                href="#BookADemo"
+                className="text-decoration-none text-white"
+                onClick={handleSidebarClose}
+              >
+                {" "}
                 Book a demo
-              </a>{" "}
+              </a>
             </button>
           </div>
+          {/* ==================== sidebar toggler content   ==================== */}
+
           <button
-            className="navbar-toggler d-lg-none"
+            className="navbar-toggler  d-lg-none border-0 border-0 text-white"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
@@ -173,10 +246,11 @@ export default function NavBar() {
             aria-label="Toggle navigation"
             onClick={handleSidebarClose}
           >
-            <span className="navbar-toggler-icon" />
+            <span className="navToggelIcon"></span>
+            <span className="navToggelIcon"></span>
+            <span className="navToggelIcon"></span>
           </button>
 
-          {/* sidebar toggler content  */}
           <div
             className="offcanvas offcanvas-end"
             tabIndex={-1}
@@ -184,12 +258,15 @@ export default function NavBar() {
             aria-labelledby="offcanvasNavbarLabel"
           >
             <div className="offcanvas-header">
-              <h5 className="offcanvas-title" id="offcanvasNavbarLabel">
-                AVTax
+              <h5
+                className="offcanvas-title fw-bolder"
+                id="offcanvasNavbarLabel"
+              >
+                avtax
               </h5>
               <button
                 type="button"
-                className="btn-close"
+                className="btn-close text-primary"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
                 onClick={handleSidebarClose}
@@ -201,7 +278,7 @@ export default function NavBar() {
                 <div className="accordion-item">
                   <h2 className="accordion-header">
                     <button
-                      className="accordion-button"
+                      className="accordion-button "
                       type="button"
                       data-bs-toggle="collapse"
                       data-bs-target="#collapseAboutUs"
@@ -226,7 +303,18 @@ export default function NavBar() {
                             key={index}
                             onClick={handleSidebarClose}
                           >
-                            {item}
+                            <img
+                              src={item[0]}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                display: "inline-block",
+                                marginRight: "7px",
+                                objectFit: "contain",
+                              }}
+                              alt="product image"
+                            />
+                            {item[1]}
                           </a>
                         ))}
                       </div>
@@ -255,14 +343,29 @@ export default function NavBar() {
                     <div className="accordion-body">
                       <div className="list-group">
                         {company.products.map((item, index) => (
-                          <a
+                          <Link
                             className="list-group-item list-group-item-action"
-                            href="#"
-                            key={index}
+                            to={`/product/${item[1]}`}
+                            key={"product" + index}
                             onClick={handleSidebarClose}
+                            state={{
+                              type: "product",
+                              serviceProductDetails: item[2],
+                            }}
                           >
-                            {item}
-                          </a>
+                            <img
+                              src={item[0]}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                display: "inline-block",
+                                marginRight: "7px",
+                                objectFit: "contain",
+                              }}
+                              alt="product image"
+                            />
+                            {item[1]}
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -290,14 +393,29 @@ export default function NavBar() {
                     <div className="accordion-body">
                       <div className="list-group">
                         {company.services.map((item, index) => (
-                          <a
+                          <Link
                             className="list-group-item list-group-item-action"
-                            href="#"
-                            key={index}
+                            to={`/service/${item[1]}`}
+                            key={"service" + index}
                             onClick={handleSidebarClose}
+                            state={{
+                              type: "service",
+                              serviceProductDetails: item[2],
+                            }}
                           >
-                            {item}
-                          </a>
+                            <img
+                              src={item[0]}
+                              style={{
+                                width: "20px",
+                                height: "20px",
+                                display: "inline-block",
+                                marginRight: "7px",
+                                objectFit: "contain",
+                              }}
+                              alt="product image"
+                            />
+                            {item[1]}
+                          </Link>
                         ))}
                       </div>
                     </div>

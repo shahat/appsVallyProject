@@ -1,13 +1,58 @@
-.brands{
-    
-    .brandsContainer{
 
+.brands {
+    #clients {
+      color: var(--main_heading_color) !important;
+      font-weight: 700;
+      line-height: 67px;
+      letter-spacing: 2px;
     }
-    .carousel-item-Container{
+  
+    #carouselExampleSlidesOnly {
+      border-radius: 10px; 
+      height: 144px;
+  
+      .carousel-item-Container {
         height: 144px !important;
-
-    }
-    .carousel-item {
-        transition-duration: 1.5s; /* Adjust the duration as needed */
       }
-}
+  
+      .carousel-item {
+        transition-duration: 1.5s;
+      }
+    }
+  }
+  
+  .companyFacts {
+    min-height: 280px;
+    background: url(../../../public/Riyadh.jpg) center/cover no-repeat;
+    position: relative;
+  
+    .factOverlay {
+      width: 100%;
+      height: 100%;
+      position: absolute; 
+      top: 0;
+      left: 0;
+      background-color: rgba(0, 0, 0, 0.482);
+    }
+  
+    .invoiceMarketSection {
+      h3 {
+        color: var(--main_heading_color) !important;
+      }
+    }   
+  }
+  
+  @media screen and (max-width: 768px) {
+    .companyFacts {
+      .invoiceMarketSection {
+        h3 {
+          font-size: 20px !important;
+        }
+        
+        p {
+          font-size: 14px !important;
+        }
+      }
+    }
+  }
+  

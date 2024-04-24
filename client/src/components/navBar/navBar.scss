@@ -1,12 +1,14 @@
 .navbar{
   position: fixed !important;
+  height: 70px;
   background-color: transparent !important;
-  height: 
   top: 0;
   left: 0;
   right:0;
   z-index: 1000;
   color:white ; 
+  transition: all .5s;
+
 // ================ NavbarMenu ===============
 
   .navbar-menu {
@@ -15,13 +17,13 @@
     justify-content: space-between;
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0;   
     gap: 1rem;
     font-size: medium;
     font-weight: 400;
     .nav-link {
-      position: relative; 
-      color: inherit; 
+    position: relative; 
+    color: inherit; 
       .rotate {
         transition: transform 0.3s ease;
       }
@@ -32,43 +34,61 @@
 //  ================ NavItem =============== 
     .nav-item {
       position: relative;
+      
       .dropdown-menu {
-        display: none;
         position: absolute; 
         top: 100%;
-        left: 0;
+        right: 0;
         padding: 5px;
         font-size: 15px ;  
         font-weight: 500;
         background-color: white;
         border: 1px solid rgba(0, 0, 0, 0.1);
-        border-radius: 3px !important; 
+        border-radius: 10px !important; 
         z-index: 1100;
+        transition: all 1s;
+      
+
+
         .dropdown-item {
           display: block;
-          padding-block: 8px ;
-          color: rgba(0, 0, 0, 0.6); // Adjust text color
+          padding-block: 12px !important ;
+          padding-inline: 20px !important;
+          color: #0a25408c ;
           text-decoration: none;
           cursor: pointer; 
         }
       }
-      &:hover .dropdown-menu {
-        display: block; // Show dropdown menus on hover
+      .show{
+        display: block;
       }
+  
     }
     .services-dropdown:hover .dropdown-menu {
       display: block; 
     }
   }
-//  ================ logo ===============
-  .navbar-brand{
-    width: 50px;
-    height: 30px;
-    cursor: pointer;
-    overflow: hidden;
-      background-image: url("../../../public/logo/AVtax.png");
-      background-repeat: no-repeat;
-      background-position: start;
-      background-size: contain;
-  }  
+ 
+}
+.scrolled{
+background: #283048; 
+background: -webkit-linear-gradient(to right, #6c4b63, #373B55); 
+background: linear-gradient(to right, #6c4b63, #373B55); 
+}
+
+.navToggelIcon{
+  width:35px ;
+  height: 3.5px;
+  background-color: white;
+  display: block;
+  margin: 5px
+}
+.navbar-toggler:focus {
+  outline: none;
+  border: none;
+}
+
+/* Optionally, you can also remove the box-shadow */
+.navbar-toggler:focus {
+  box-shadow: none;
 }
