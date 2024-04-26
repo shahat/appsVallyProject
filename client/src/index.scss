@@ -1,14 +1,11 @@
+// ===================== Reset ======================
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif; 
 }
-body {
-  position: relative;
-  overflow-y: scroll;
-  overflow-x: hidden !important;
-}
+// ===================== Variables ======================
 :root {
   --white: #fff;  
   --primary: #6222CC;
@@ -24,6 +21,14 @@ body {
   --main_heading_color: #0A2540; 
   --main_text_color:rgba(10, 37, 64, 0.612) !important;
 }
+
+// ===================== Global ======================
+body {
+  position: relative;
+  overflow-y: scroll;
+  overflow-x: hidden !important;
+}
+
 /*** Heading ***/
 h1,
 h2,

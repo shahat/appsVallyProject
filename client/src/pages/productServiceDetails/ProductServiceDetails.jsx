@@ -3,11 +3,7 @@ import { useLocation } from "react-router-dom";
 import "./serviceProductDetails.scss";
 function ProductServiceDetails() {
   const { state } = useLocation();
-  console.log(
-    "serviceProductDetails : type ",
-    state.serviceProductDetails,
-    state.type
-  );
+
   return (
     <>
       <ServiceProductHero

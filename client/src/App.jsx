@@ -17,15 +17,20 @@ import NotFound from "./pages/NotFound/NotFound";
 
 function App() {
   const token = localStorage.getItem("token");
-  console.log(" token : ", token);
   return (
     <>
       <BrowserRouter>
         <Routes>
           <Route path="/" element={<AppLayout />}>
             <Route index element={<Home />} />
-            <Route path="/product/:productId" element={<ProductServiceDetails />} />
-            <Route path="/service/:productId" element={<ProductServiceDetails />} />
+            <Route
+              path="/product/:productId"
+              element={<ProductServiceDetails />}
+            />
+            <Route
+              path="/service/:productId"
+              element={<ProductServiceDetails />}
+            />
           </Route>
 
           <Route

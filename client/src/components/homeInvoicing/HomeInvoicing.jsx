@@ -1,15 +1,7 @@
-import { BsRocketTakeoffFill } from "react-icons/bs";
 import "./homeInvoicing.scss";
-import { useState, useRef } from "react";
 import { GrStatusGood } from "react-icons/gr";
 import HomeMuchMore from "../homeMuchMore/HomeMuchMore";
 import envoicesvg from "../../../public/img/svg/invoice-animate.svg";
-
-import {
-  productsData,
-  reviews,
-  resources,
-} from "../../assets/products_services";
 import HomeBrands from "../homeBrands/HomeBrands";
 import Product from "../product/Product";
 import Service from "../service/Service";
@@ -18,8 +10,6 @@ import SectionHeading from "../reuseable/sectionHeading/SectionHeading";
 import HomeGetInTouch from "../homeGetInTouch/HomeGetInTouch";
 import HomeTestimonial from "../homeTestimonial/HomeTestimonial";
 export default function HomeInvoicing() {
-  // ================= handlers ===============
-
   return (
     <>
       {/* ==============  invoicing ============== */}
