@@ -19,13 +19,13 @@
     align-items: center;
     justify-content: center;
     color: var(--light);
-    background: url(../../../public/serviceIcon/pay.png) center center no-repeat;
+    background: url(../../../public/img/serviceIcon/pay.png) center center no-repeat;
     background-size: contain;
     transition: .5s;
 }
 &:hover .service-icon {
     color: var(--dark);
-    background: url(../../../public/serviceIcon/dashboard.png) center center no-repeat;
+    background: url(../../../public/img/serviceIcon/dashboard.png) center center no-repeat;
     background-size: contain;
 }
  h5,

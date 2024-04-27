@@ -7,7 +7,7 @@ function ProductServiceDetails() {
   return (
     <>
       <ServiceProductHero
-        item={state.serviceProductDetails[0][0]}
+        item={state.serviceProductDetails.title}
         type={state.type}
       />
       <div className="container">
@@ -15,16 +15,18 @@ function ProductServiceDetails() {
           {" "}
           {state.type === "service" ? "Service" : "Product"} Details
         </h2>
-        {state.serviceProductDetails.map((item, index) => (
+        {state.serviceProductDetails.detailsDesc.map((item, index) => (
           <div
             key={"productServiceDetails" + index}
             className="row  g-4 my-3 align-items-center "
           >
-            <p className="productServiceDesc col-12 col-md-6 fs-5">{item[1]}</p>
+            <p className="productServiceDesc col-12 col-md-6 fs-5">
+              {item.desc}
+            </p>
 
             <iframe
               style={{ maxWidth: "560px", height: "315px" }}
-              src={item[2]}
+              src={item.video}
               title="YouTube video player"
               className="col-12 col-md-6"
               frameborder="0"

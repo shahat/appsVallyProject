@@ -32,11 +32,11 @@ export default function product() {
                     <div className="portfolio-overlay">
                       <Link
                         className="btn btn-square btn-outline-light mx-1"
-                        to={`/product/${item[1]}`}
+                        to={`/product/${item.title}`}
                         key={"product" + index}
                         state={{
                           type: "product",
-                          serviceProductDetails: item[2],
+                          serviceProductDetails: item.desc,
                         }}
                       >
                         <i className="fa fa-link" />
@@ -46,16 +46,16 @@ export default function product() {
                   <div className="productCardContent bg-light p-1  p-md-4">
                     <Link
                       className="text-decoration-none"
-                      to={`/product/${item[1]}`}
+                      to={`/product/${item.title}`}
                       key={"product" + index}
                       state={{
                         type: "product",
-                        serviceProductDetails: item[2],
+                        serviceProductDetails: item.desc,
                       }}
                     >
-                      <h5 className="mb-1 ">{item[1]}</h5>
+                      <h5 className="mb-1 ">{item.title}</h5>
                       <p className="productCardDesc mb-2 ">
-                        {item[2][0][1].substring(0, 80) + "..."}
+                        {item.desc.detailsDesc[0].desc.substring(0, 80) + "..."}
                       </p>
                     </Link>
                   </div>

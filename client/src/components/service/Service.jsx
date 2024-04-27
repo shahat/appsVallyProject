@@ -20,17 +20,17 @@ export default function Service() {
               <div key={index} className="col-lg-4 col-md-6 ">
                 <div className="service-item d-flex flex-column text-center rounded">
                   <div className="service-icon flex-shrink-0"></div>
-                  <h5 className="mb-3">{item[1]}</h5>
+                  <h5 className="mb-3">{item.title}</h5>
                   <p className="m-0">
-                    {item[2][0][1].substring(0, 80) + "..."}
+                    {item.desc.detailsDesc[0].desc.substring(0, 80) + "..."}
                   </p>
                   <Link
                     className="btn btn-square"
-                    to={`/service/${item[1]}`}
+                    to={`/service/${item.title}`}
                     key={"service" + index}
                     state={{
                       type: "service",
-                      serviceProductDetails: item[2],
+                      serviceProductDetails: item.desc,
                     }}
                   >
                     <i className="fa fa-arrow-right" />

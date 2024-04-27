@@ -1,11 +1,9 @@
 import { useState, useEffect } from "react";
 import { IoIosArrowUp } from "react-icons/io";
-import { PiList } from "react-icons/pi";
 import { company } from "../../assets/company";
-
+import NavIconImg from "../reuseable/navIconImg/NavIconImg";
 import "./navBar.scss";
 import { Link } from "react-router-dom";
-
 export default function NavBar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [scrollPosition, setScrollPosition] = useState(0);
@@ -81,18 +79,8 @@ export default function NavBar() {
                       to="/"
                       key={"about" + index}
                     >
-                      <img
-                        src={item[0]}
-                        style={{
-                          width: "20px",
-                          height: "20px",
-                          display: "inline-block",
-                          marginRight: "7px",
-                          objectFit: "contain",
-                        }}
-                        alt="product image"
-                      />
-                      {item[1]}
+                      {item.img && <NavIconImg item={item.img} />}
+                      {item.title}
                     </Link>
                   ))}
                 </div>
@@ -131,25 +119,15 @@ export default function NavBar() {
                   {company.products.map((item, index) => (
                     <Link
                       className="dropdown-item p-1 m-0 fw-bold"
-                      to={`/product/${item[1]}`}
+                      to={`/product/${item.title}`}
                       key={"product" + index}
                       state={{
                         type: "product",
-                        serviceProductDetails: item[2],
+                        serviceProductDetails: item.desc,
                       }}
                     >
-                      <img
-                        src={item[0]}
-                        style={{
-                          width: "20px",
-                          height: "20px",
-                          display: "inline-block",
-                          marginRight: "7px",
-                          objectFit: "contain",
-                        }}
-                        alt="product image"
-                      />
-                      {item[1]}
+                      {item.img && <NavIconImg item={item.img} />}
+                      {item.title}
                     </Link>
                   ))}
                 </div>
@@ -183,25 +161,15 @@ export default function NavBar() {
                     {company.services.map((item, index) => (
                       <Link
                         className="dropdown-item p-1 m-0 fw-bold"
-                        to={`/service/${item[1]}`}
+                        to={`/service/${item.title}`}
                         key={"service" + index}
                         state={{
                           type: "service",
-                          serviceProductDetails: item[2],
+                          serviceProductDetails: item.desc,
                         }}
                       >
-                        <img
-                          src={item[0]}
-                          style={{
-                            width: "20px",
-                            height: "20px",
-                            display: "inline-block",
-                            marginRight: "7px",
-                            objectFit: "contain",
-                          }}
-                          alt="product image"
-                        />
-                        {item[1]}
+                        {item.img && <NavIconImg item={item.img} />}
+                        {item.title}
                       </Link>
                     ))}
                   </div>
@@ -297,25 +265,15 @@ export default function NavBar() {
                     <div className="accordion-body">
                       <div className="list-group">
                         {company.aboutUs.map((item, index) => (
-                          <a
+                          <Link
                             className="list-group-item list-group-item-action"
-                            href="#"
+                            to="/"
                             key={index}
                             onClick={handleSidebarClose}
                           >
-                            <img
-                              src={item[0]}
-                              style={{
-                                width: "20px",
-                                height: "20px",
-                                display: "inline-block",
-                                marginRight: "7px",
-                                objectFit: "contain",
-                              }}
-                              alt="product image"
-                            />
-                            {item[1]}
-                          </a>
+                            {item.img && <NavIconImg item={item.img} />}
+                            {item.title}
+                          </Link>
                         ))}
                       </div>
                     </div>
@@ -345,26 +303,16 @@ export default function NavBar() {
                         {company.products.map((item, index) => (
                           <Link
                             className="list-group-item list-group-item-action"
-                            to={`/product/${item[1]}`}
+                            to={`/product/${item.title}`}
                             key={"product" + index}
                             onClick={handleSidebarClose}
                             state={{
                               type: "product",
-                              serviceProductDetails: item[2],
+                              serviceProductDetails: item.desc,
                             }}
                           >
-                            <img
-                              src={item[0]}
-                              style={{
-                                width: "20px",
-                                height: "20px",
-                                display: "inline-block",
-                                marginRight: "7px",
-                                objectFit: "contain",
-                              }}
-                              alt="product image"
-                            />
-                            {item[1]}
+                            {item.img && <NavIconImg item={item.img} />}
+                            {item.title}
                           </Link>
                         ))}
                       </div>
@@ -395,26 +343,16 @@ export default function NavBar() {
                         {company.services.map((item, index) => (
                           <Link
                             className="list-group-item list-group-item-action"
-                            to={`/service/${item[1]}`}
+                            to={`/service/${item.title}`}
                             key={"service" + index}
                             onClick={handleSidebarClose}
                             state={{
                               type: "service",
-                              serviceProductDetails: item[2],
+                              serviceProductDetails: item.desc,
                             }}
                           >
-                            <img
-                              src={item[0]}
-                              style={{
-                                width: "20px",
-                                height: "20px",
-                                display: "inline-block",
-                                marginRight: "7px",
-                                objectFit: "contain",
-                              }}
-                              alt="product image"
-                            />
-                            {item[1]}
+                            {item.img && <NavIconImg item={item.img} />}
+                            {item.title}
                           </Link>
                         ))}
                       </div>
