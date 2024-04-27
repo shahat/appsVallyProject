@@ -2,6 +2,7 @@ import "./product.scss";
 import SectionHeading from "../reuseable/sectionHeading/SectionHeading";
 import { company } from "../../assets/company";
 import { Link } from "react-router-dom";
+import { productImages } from "../../../public/img/productImages/productImages";
 export default function product() {
   return (
     <>
@@ -26,7 +27,7 @@ export default function product() {
                   <div className="position-relative overflow-hidden">
                     <img
                       className="img-fluid w-100"
-                      src={`../../../public/img/portfolio-${index + 1}.jpg`}
+                      src={productImages[index]}
                       alt="product image"
                     />
                     <div className="portfolio-overlay">

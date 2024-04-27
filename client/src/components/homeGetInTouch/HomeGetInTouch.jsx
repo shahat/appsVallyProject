@@ -20,7 +20,7 @@ export default function HomeGetInTouch() {
               data-aos="fade-right"
             >
               <img
-                src="../../../public/img/svg/from.svg"
+                src="/public/img/svg/from.svg"
                 alt="contact form image"
                 loading="lazy"
               />
