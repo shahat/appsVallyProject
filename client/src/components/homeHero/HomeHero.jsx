@@ -6,7 +6,7 @@ import AOs from "aos";
 export default function HomeHero() {
   useEffect(() => {
     AOs.init({
-      duration: 2000,
+      duration: 800,
     });
   }, []);
   return (
