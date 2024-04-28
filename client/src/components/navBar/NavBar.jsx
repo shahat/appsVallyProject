@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import { IoIosArrowUp } from "react-icons/io";
 import { company } from "../../assets/company";
 import NavIconImg from "../reuseable/navIconImg/NavIconImg";
+import { useNavigate } from "react-router-dom";
+
 import "./navBar.scss";
 import { Link } from "react-router-dom";
 export default function NavBar() {
@@ -29,6 +31,15 @@ export default function NavBar() {
     setDropdown((prevState) => !prevState);
   };
 
+  const navigate = useNavigate();
+
+  const handleLinkClick = ({ path, state, type }) => {
+    // ========= first close the sidebar =========
+
+    // ======== second navigate to the second component =========
+    navigate(path, { state: { serviceProductDetails: state, type } });
+  };
+
   useEffect(() => {
     if (initialLoad) {
       setInitialLoad(false);
@@ -40,7 +51,7 @@ export default function NavBar() {
       <nav className={isScrolled ? "navbar scrolled" : "navbar"}>
         <div className="container p-0  d-flex align-items-center">
           <a className="text-decoration-none  " href="/">
-            <h1 className="m-0 p-0 fs-3 text-white fw-bolder ">avtax</h1>
+            <h1 className=" fs-3 text-white ps-3 p-md-0 fw-bolder ">avtax</h1>
           </a>
           <div className="d-none d-lg-block">
             <ul className="navbar-menu">
@@ -190,12 +201,12 @@ export default function NavBar() {
 
           <div className="langAndDemo d-none d-lg-flex align-itmes-center">
             <button
-              className=" btn btn-primary px-2 py-1 fw-medium"
+              className=" btn rounded-pill py-2 px-4 ms-3 d-none d-lg-block bg-white  "
               type="submit"
             >
               <a
                 href="#BookADemo"
-                className="text-decoration-none text-white"
+                className="text-decoration-none text-dark "
                 onClick={handleSidebarClose}
               >
                 {" "}
@@ -203,16 +214,16 @@ export default function NavBar() {
               </a>
             </button>
           </div>
+
           {/* ==================== sidebar toggler content   ==================== */}
 
           <button
-            className="navbar-toggler  d-lg-none border-0 border-0 text-white"
+            className="navbar-toggler px-3  d-lg-none border-0 border-0 text-white"
             type="button"
             data-bs-toggle="offcanvas"
             data-bs-target="#offcanvasNavbar"
             aria-controls="offcanvasNavbar"
             aria-label="Toggle navigation"
-            onClick={handleSidebarClose}
           >
             <span className="navToggelIcon"></span>
             <span className="navToggelIcon"></span>
@@ -237,7 +248,6 @@ export default function NavBar() {
                 className="btn-close text-primary"
                 data-bs-dismiss="offcanvas"
                 aria-label="Close"
-                onClick={handleSidebarClose}
               />
             </div>
             <div className="offcanvas-body">
@@ -265,15 +275,21 @@ export default function NavBar() {
                     <div className="accordion-body">
                       <div className="list-group">
                         {company.aboutUs.map((item, index) => (
-                          <Link
+                          <div
                             className="list-group-item list-group-item-action"
-                            to="/"
-                            key={index}
-                            onClick={handleSidebarClose}
+                            key={"product" + index}
+                            onClick={() =>
+                              handleLinkClick({
+                                path: `/`,
+                                state: {},
+                              })
+                            }
+                            data-bs-dismiss="offcanvas"
+                            aria-label="Close"
                           >
                             {item.img && <NavIconImg item={item.img} />}
                             {item.title}
-                          </Link>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -288,7 +304,6 @@ export default function NavBar() {
                       data-bs-target="#collapseProducts"
                       aria-expanded="false"
                       aria-controls="collapseProducts"
-                      onClick={handleSidebarClose}
                     >
                       Products
                     </button>
@@ -301,19 +316,22 @@ export default function NavBar() {
                     <div className="accordion-body">
                       <div className="list-group">
                         {company.products.map((item, index) => (
-                          <Link
+                          <div
                             className="list-group-item list-group-item-action"
-                            to={`/product/${item.title}`}
                             key={"product" + index}
-                            onClick={handleSidebarClose}
-                            state={{
-                              type: "product",
-                              serviceProductDetails: item.desc,
-                            }}
+                            onClick={() =>
+                              handleLinkClick({
+                                path: `/product/${item.title}`,
+                                state: item.desc,
+                                type: "product",
+                              })
+                            }
+                            data-bs-dismiss="offcanvas"
+                            aria-label="Close"
                           >
                             {item.img && <NavIconImg item={item.img} />}
                             {item.title}
-                          </Link>
+                          </div>
                         ))}
                       </div>
                     </div>
@@ -328,7 +346,6 @@ export default function NavBar() {
                       data-bs-target="#collapseServices"
                       aria-expanded="false"
                       aria-controls="collapseServices"
-                      onClick={handleSidebarClose}
                     >
                       Services
                     </button>
@@ -341,36 +358,46 @@ export default function NavBar() {
                     <div className="accordion-body">
                       <div className="list-group">
                         {company.services.map((item, index) => (
-                          <Link
+                          <div
                             className="list-group-item list-group-item-action"
-                            to={`/service/${item.title}`}
-                            key={"service" + index}
-                            onClick={handleSidebarClose}
-                            state={{
-                              type: "service",
-                              serviceProductDetails: item.desc,
-                            }}
+                            key={"product" + index}
+                            onClick={() =>
+                              handleLinkClick({
+                                path: `/service/${item.title}`,
+                                state: item.desc,
+                                type: "product",
+                              })
+                            }
+                            data-bs-dismiss="offcanvas"
+                            aria-label="Close"
                           >
                             {item.img && <NavIconImg item={item.img} />}
                             {item.title}
-                          </Link>
+                          </div>
                         ))}
                       </div>
                     </div>
                   </div>
                 </div>
               </div>
-
               {/* ------------------------------ */}
 
               <button
-                className=" btn btn-primary d-block  m-3 mx-auto  fw-medium"
+                className="  d-block  m-3 mx-auto  btn rounded-pill py-2 px-4   bg-dark    
+                "
                 type="submit"
               >
                 <a
-                  href="#BookADemo"
                   className="text-decoration-none text-white"
-                  onClick={handleSidebarClose}
+                  onClick={() =>
+                    handleLinkClick({
+                      path: "/#BookADemo",
+                      state: {},
+                      type: "",
+                    })
+                  }
+                  data-bs-dismiss="offcanvas"
+                  aria-label="Close"
                 >
                   {" "}
                   Book a demo

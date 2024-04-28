@@ -93,8 +93,8 @@ export default function DemoForm() {
           aria-label="Default select example"
         >
           {company.services.map((item, index) => (
-            <option key={`serv-${index}`} value={item[1]}>
-              {item[1]}
+            <option key={`serv-${index}`} value={item.title}>
+              {item.title}
             </option>
           ))}
         </select>
@@ -110,13 +110,12 @@ export default function DemoForm() {
         >
           <option selected>Select You product </option>
           {company.products.map((item, index) => (
-            <option key={`prod-${index}`} value={item[1]}>
-              {item[1]}
+            <option key={`prod-${index}`} value={item.title}>
+              {item.title}
             </option>
           ))}
         </select>
       </div>
-
       <div className="mb-3 form-check">
         <input required type="checkbox" className="form-check-input" />
         <label className="form-check-label " style={{ fontSize: "13.5px" }}>

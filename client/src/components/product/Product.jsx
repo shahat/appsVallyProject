@@ -54,7 +54,9 @@ export default function product() {
                         serviceProductDetails: item.desc,
                       }}
                     >
-                      <h5 className="mb-1 ">{item.title}</h5>
+                      <h5 className="mb-1 ">
+                        {item.title.substring(0, 13) + " ..."}
+                      </h5>
                       <p className="productCardDesc mb-2 ">
                         {item.desc.detailsDesc[0].desc.substring(0, 80) + "..."}
                       </p>

@@ -1,6 +1,7 @@
 import SectionHeading from "../reuseable/sectionHeading/SectionHeading";
 import "./getintouch.scss";
 import DemoForm from "../reuseable/DemoForm/DemoForm";
+import { svgImgs } from "../../../public/img/svg/svgImgs";
 export default function HomeGetInTouch() {
   return (
     <div className="gitInTouch  my-5 py-5">
@@ -19,14 +20,13 @@ export default function HomeGetInTouch() {
               className="gitInTouchImage d-flex justify-content-center"
               data-aos="fade-right"
             >
-              <img
-                src="/public/img/svg/from.svg"
-                alt="contact form image"
-                loading="lazy"
-              />
+              <img src={svgImgs.form} alt="contact form image" loading="lazy" />
             </section>
           </div>
-          <div className="heroFormContainer  d-flex col-11 col-md-5 justify-content-center justify-content-md-end ">
+          <div
+            id="BookADemo"
+            className="heroFormContainer  d-flex col-11 col-md-5 justify-content-center justify-content-md-end "
+          >
             <DemoForm />
           </div>
         </div>

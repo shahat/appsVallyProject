@@ -1,11 +1,9 @@
 .homeHero{
-    width: 100vw;
-    min-height: 100vh;
-    overflow-y: hidden !important;
-    overflow-x: hidden !important;
+  width: 100vw;
+  min-height: 100vh;
     position: relative ; 
     color:white !important;
-    padding-top: 70px; 
+    padding: 70px 0 20px 0px !important; 
     background-image:  url("../../../public/Riyadh_Skyline.jpg") ;
     background-size:cover;
 .homeHeroOverlay{
@@ -13,14 +11,20 @@
   top: 0;
   left:0;
   width: 100vw;
-  min-height: 100vh; 
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
+  height: 100%;
   background-color: rgba($color: #00000054, $alpha: .3);
 }
 .heroFormContainer{
   padding-top: 20px;
+}
+
+.heroTitle{
+  background-image: url(../../../public/img/heroTitle/explosion-colored-powder-white-background_1112-1554.avif);
+  background-attachment: fixed;
+  background-size: cover;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+
 }
 }
 @media (max-width: 768px) { // For screens smaller than 'md'

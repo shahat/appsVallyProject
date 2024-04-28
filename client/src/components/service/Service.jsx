@@ -20,7 +20,9 @@ export default function Service() {
               <div key={index} className="col-lg-4 col-md-6 ">
                 <div className="service-item d-flex flex-column text-center rounded">
                   <div className="service-icon flex-shrink-0"></div>
-                  <h5 className="mb-3">{item.title}</h5>
+                  <h5 className="mb-3">
+                    {item.title.substring(0, 30) + " ..."}
+                  </h5>
                   <p className="m-0">
                     {item.desc.detailsDesc[0].desc.substring(0, 80) + "..."}
                   </p>
