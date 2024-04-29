@@ -7,6 +7,10 @@ const usersRoute = require("./routes/users");
 const customerRoute = require("./routes/customer");
 const cors = require("cors");
 
+
+ 
+connection.end();
+
 const app = express();
 app.use(cors());
 // ======================== connect to db
