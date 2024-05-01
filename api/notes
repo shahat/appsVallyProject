@@ -1,0 +1,17 @@
+// ================================ Black list ================================
+Token Invalidation: When a user logs out or their session expires, you can add their JWT token to the blacklist. This ensures that even if the token is somehow intercepted or stolen, it cannot be used to authenticate future requests because it has been invalidated.
+
+Prevent Unauthorized Access: By checking incoming requests against the blacklist, you can prevent revoked or expired tokens from being used to access protected resources. 
+This helps prevent unauthorized access to sensitive data or actions in your application.
+
+
+
+Revoke Access: In scenarios where you need to revoke a user's access immediately (e.g., due to suspicious activity or a security breach), you can add their token to the blacklist to revoke their access instantly.
+
+
+
+
+Audit and Logging: Maintaining a blacklist provides an audit trail of invalidated tokens, which can be useful for security audits, troubleshooting, and investigating security incidents.
+
+
+Enhanced Security: Adding an additional layer of security by invalidating tokens upon logout or expiration helps protect your application and its users from unauthorized access and potential security threats.

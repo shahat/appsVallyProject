@@ -1,46 +1,63 @@
-const Customer = require("../models/Customer");
-
+const { Customer } = require("../models");
 // ============== create customer ==============
 const createCustomer = async (req, res) => {
+  console.log("create customer called");
   const {
-    name,
-    countryCode,
     phoneNumber,
     companyName,
     companyEmail,
-    numberOfInvoices,
+    requiredService,
+    requiredProduct,
   } = req.body;
-  console.log("submited data", req.body);
 
-  const customer = await Customer.findOne({ companyEmail });
-  // ============== make new user ==============
-  if (!customer) {
-    try {
-      const newCustomer = new Customer({
-        name,
-        countryCode,
+  try {
+    const customer = await Customer.findOne({ where: { companyEmail } });
+    if (!customer) {
+      const newCustomer = await Customer.create({
         phoneNumber,
         companyName,
         companyEmail,
-        numberOfInvoices,
+        requiredService,
+        requiredProduct,
       });
-      const savedcustomer = await newCustomer.save();
-      res.status(201).json("thanks for contacting with us");
-    } catch (err) {
-      res.status(500).json(err);
+      res.status(201).json("Thanks for contacting with us");
+    } else {
+      console.log("Customer already exists");
+      res.status(409).json("Customer already exists");
     }
-  } else {
-    res.status(401).json({ message: "customer already exists" });
+  } catch (err) {
+    console.error("Error creating customer:", err);
+    res.status(500).json("Error creating customer");
   }
 };
 
+
+
+// ============== get all customers ==============
 const getAllCustomers = async (req, res) => {
   try {
-    const customers = await Customer.find();
+    const customers = await Customer.findAll();
     res.status(200).json(customers);
   } catch (err) {
-    res.status(500).json(err);
+    console.error("Error fetching customers:", err);
+    res.status(500).json("Internal Server Error");
   }
 };
 
-module.exports = { createCustomer, getAllCustomers };
+// ============== delete customer ==============
+const deleteCustomer = async (req, res) => {
+  const customerId = req.params.id;
+  try {
+    const customer = await Customer.findByPk(customerId);
+    if (!customer) {
+      return res.status(404).json({ message: "Customer not found" });
+    }
+    await customer.destroy();
+    res.status(200).json({ message: "Customer deleted successfully" });
+  } catch (err) {
+    console.error("Error deleting customer:", err);
+    res.status(500).json("Internal Server Error");
+  }
+};
+
+module.exports = { createCustomer, getAllCustomers, deleteCustomer };

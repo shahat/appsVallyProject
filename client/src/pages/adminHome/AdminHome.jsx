@@ -20,22 +20,22 @@ export default function AdminHome() {
         <thead>
           <tr>
             <th scope="col">id</th>
-            <th scope="col">name</th>
-            <th scope="col">phone</th>
-            <th scope="col">company name</th>
-            <th scope="col">company Email</th>
-            <th scope="col">NUM of Invoces</th>
+            <th scope="col">C_name</th>
+            <th scope="col">C_number</th>
+            <th scope="col">C_email</th>
+            <th scope="col">R_service</th>
+            <th scope="col">R_Product</th>
           </tr>
         </thead>
         <tbody>
           {customers.map((customer, index) => (
             <tr key={index}>
               <th scope="row">{index + 1}</th>
-              <td>{customer.name}</td>
-              <td>{`${customer.countryCode} ${customer.phoneNumber}`}</td>
               <td>{customer.companyName}</td>
+              <td>{`${customer.phoneNumber}`}</td>
               <td>{customer.companyEmail}</td>
-              <td>{customer.numberOfInvoices}</td>
+              <td>{customer.requiredService}</td>
+              <td>{customer.requiredProduct}</td>
             </tr>
           ))}
         </tbody>

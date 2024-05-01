@@ -26,15 +26,18 @@ export default function DemoForm() {
 
   // Handle form submission
   const handleSubmit = async (e) => {
+    console.log("form data");
     e.preventDefault();
+
     try {
-      let response = await instance.post("/customer/", formData);
-      if (response.status !== 201) {
-        throw new Error(response.data); // Throw the response data directly
+      const response = await instance.post("/customer/", formData);
+      console.log("this is the response ", response);
+      if (response.status === 201) {
+        toast.success("Customer created successfully");
       }
-      toast.success(response.data);
     } catch (error) {
-      toast.error(error.message || "An error occurred");
+      console.log("this is the error ", error);
+      toast.error(error.response.data || "An error occurred");
     }
   };
 

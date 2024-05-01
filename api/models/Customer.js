@@ -1,32 +1,26 @@
-const mongoose = require("mongoose");
-const customerSchema = new mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  countryCode: {
-    type: String,
-    required: true,
-  },
-  phoneNumber: {
-    type: String,
-    required: true,
-  },
-  companyName: {
-    type: String,
-    required: true,
-  },
-  companyEmail: {
-    type: String,
-    required: true,
-    unique: true, // Assuming company emails should be unique
-  },
-  numberOfInvoices: {
-    type: String,
-    required: true,
-  },
-});
-
-// Create a model using the schema
-const Customer = mongoose.model("Customer", customerSchema);
-module.exports = Customer;
+module.exports = (sequelize, DataTypes) => {
+  const Customer = sequelize.define("Customer", {
+    companyName: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    phoneNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    companyEmail: {
+      type: DataTypes.STRING,
+      allowNull: false,
+      unique: true,
+    },
+    requiredService: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    requiredProduct: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+  });
+  return Customer;
+};

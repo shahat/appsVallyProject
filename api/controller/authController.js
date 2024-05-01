@@ -1,59 +1,82 @@
-const User = require("../models/User");
 const cryptoJs = require("crypto-js");
-var jwt = require("jsonwebtoken");
+const jwt = require("jsonwebtoken");
+const { User, Blacklist } = require("../models");
 
 // ============== register ==============
 const register = async (req, res) => {
-  const { email } = req.body;
-  const user = await User.findOne({ email });
-  // ============== make new user ==============
-  if (!user) {
-    try {
-      const newUser = new User({
-        username: req.body.username,
-        email: email,
-        password: cryptoJs.AES.encrypt(req.body.password, process.env.SECRET),
-        isAdmin: req.body.isAdmin,
-      });
-      const savedUser = await newUser.save();
-      res.status(201).json(savedUser);
-    } catch (err) {
-      res.status(500).json(err);
+  const { userName, email, password, isAdmin } = req.body;
+  console.log(userName, email, password, isAdmin);
+
+  try {
+    // Check if the user already exists
+    const existingUser = await User.findOne({ where: { email: email } });
+
+    if (existingUser) {
+      return res
+        .status(401)
+        .json({ message: "User already exists", user: existingUser });
     }
-  } else {
-    res.status(401).json("user already exist");
+    // Encrypt the password
+    const encryptedPassword = cryptoJs.AES.encrypt(
+      password,
+      process.env.SECRET
+    ).toString();
+    // Create a new user object
+    const newUser = {
+      userName: userName,
+      email: email,
+      password: encryptedPassword,
+      isAdmin: isAdmin || false,
+    };
+
+    // Insert the new user into the database
+    const createdUser = await User.create(newUser);
+
+    // Send the response
+    res.status(201).json(createdUser);
+  } catch (err) {
+    console.error("Register error:", err);
+    res.status(500).json("Internal Server Error");
   }
 };
 
 // ============== login ==============
 const login = async (req, res) => {
   try {
-    // ============== Check if email and password are provided ==============
     const { email, password } = req.body;
-    console.log(email, password);
     if (!email || !password) {
       return res.status(400).json("Email and password are required");
     }
-    // ============== Find user by email ==============
-    const user = await User.findOne({ email });
+
+    // Find the user in the database by email
+    const user = await User.findOne({ where: { email: email } });
+
     if (!user) {
       return res.status(401).json("Wrong email or password");
     }
 
-    // ============== Decrypt password and compare ==============
-    const bytes = cryptoJs.AES.decrypt(user.password, process.env.SECRET);
-    const originalPassword = bytes.toString(cryptoJs.enc.Utf8);
-    if (originalPassword !== password) {
+    // Decrypt the stored password and compare with the provided password
+    const decryptedPassword = cryptoJs.AES.decrypt(
+      user.password,
+      process.env.SECRET
+    ).toString(cryptoJs.enc.Utf8);
+
+    if (decryptedPassword !== password) {
       return res.status(401).json("Wrong email or password");
     }
-    // ============== generate access token ==============
+
+    // Generate access token using JWT
     const accessToken = jwt.sign(
-      { id: user._id, isAdmin: user.isAdmin },
+      { id: user.id, isAdmin: user.isAdmin },
       process.env.SECRET,
       { expiresIn: "3d" }
     );
-    // ============== Passwords match, prepare response ==============
-    const { password: _, ...userInfo } = user._doc;
+
+    // Prepare user information for response
+    const userInfo = { ...user.toJSON() };
+    delete userInfo.password;
+
+    // Send response with user info and access token
     res.status(200).json({
       user: userInfo,
       message: "Login successful",
@@ -64,9 +87,28 @@ const login = async (req, res) => {
     res.status(500).json("Internal Server Error");
   }
 };
+
 // ============== log out ==============
 const logout = async (req, res) => {
-  res.status(200).json("Logout successful");
+  console.log("this is the authorization header: ", req.headers);
+  try {
+    // Check if the Authorization header exists
+    if (!req.headers.authorization) {
+      return res.status(400).json("access denied");
+    }
+
+    // Get the token from the request headers
+    const token = req.headers.authorization.split(" ")[1]; // Assuming the token is passed in the "Authorization" header
+
+    // Add the token to the blacklist (assuming you have a Blacklist model)
+    await Blacklist.create({ token: token });
+
+    // Respond with a success message
+    res.status(200).json("Logout successful");
+  } catch (err) {
+    console.error("Logout error:", err);
+    res.status(500).json("Internal Server Error");
+  }
 };
 
 module.exports = { register, login, logout };

@@ -14,16 +14,23 @@ export default function TopBar() {
   const handelLogout = async () => {
     console.log("logout");
     try {
-      let response = await instance.post("/auth/logout");
-      console.log("response", response);
+      let response = await instance.post(
+        "/auth/logout",
+        {},
+        {
+          headers: {
+            authorization: `a ${localStorage.getItem("token")}`,
+          },
+        }
+      );
       if (response.status !== 200) {
-        console.log("error");
-        throw new Error(response.data); // Throw the response data directly
+        console.log("res.data", response.data);
+        return;
       }
       localStorage.removeItem("token");
       notify("Logout Successful", "/login");
     } catch (error) {
-      console.log(error);
+      console.log("this is error :", error);
       toast.error(error);
     }
   };
