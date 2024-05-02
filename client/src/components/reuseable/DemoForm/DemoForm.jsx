@@ -89,12 +89,12 @@ export default function DemoForm() {
         <select
           name="requiredService"
           className="form-select"
-          placeholder="          Required Service
-          "
+         
           value={formData.requiredService}
           onChange={handleChange}
           aria-label="Default select example"
         >
+          <option selected>Select You Service </option>
           {company.services.map((item, index) => (
             <option key={`serv-${index}`} value={item.title}>
               {item.title}

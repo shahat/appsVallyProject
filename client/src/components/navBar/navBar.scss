@@ -92,3 +92,20 @@ background: linear-gradient(to right, #6c4b63, #373B55);
 .navbar-toggler:focus {
   box-shadow: none;
 }
+
+.accordion-button:focus {
+  box-shadow: none;
+  background-color: none;
+  border: none;
+  outline: none;
+
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: none; 
+  border: none;
+
+}
+
+
+

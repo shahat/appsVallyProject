@@ -9,31 +9,37 @@
 }
 
 /* Example SCSS */
-.paginate
-{
-width: 60px;
-height: 60px;
-color: var(--primary);
-background: var(--light);
-border-radius: 60px;
-font-size: 22px;
-transition: .5s;
-.paginateIcon{
+.paginate {
+  width: 60px;
+  height: 60px;
+  color: var(--primary);
+  background: var(--light);
+  border-radius: 60px;
+  font-size: 22px;
+  transition: .5s;
+  cursor: pointer; // Adding cursor pointer to all screens
+
+  .paginateIcon {
     display: block;
     margin: 0 auto;
     line-height: 60px;
     text-align: center;
     font-size: 32px;
-}
+  }
+
+  &:active {
+    background: var(--primary);
+    color: var(--light);
+
+    transform: scale(0.9); // Scale effect when button is clicked
+
+  }
 }
 
-  .paginateNext:hover,
-  .paginatePrev:hover {
-    color: #FFFFFF;
-    background: var(--primary);
-    box-shadow: 0 0 10px rgba(0, 0, 0, .5);
-  }
-  
+
+
+
+// ====================== 
 @media screen and (min-width: 601px) {    
     .slider{
         padding:10px;
@@ -42,9 +48,7 @@ transition: .5s;
   }
   }
 }
- 
-@media screen and (max-width: 600) {
-    
+@media screen and (max-width: 600) {   
     .slider{
         .testimonial-item{
       width: 85% !important;

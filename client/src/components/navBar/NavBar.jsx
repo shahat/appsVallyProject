@@ -387,11 +387,11 @@ export default function NavBar() {
                 "
                 type="submit"
               >
-                <a
+                <Link
                   className="text-decoration-none text-white"
                   onClick={() =>
                     handleLinkClick({
-                      path: "/#BookADemo",
+                      path: "/",
                       state: {},
                       type: "",
                     })
@@ -401,7 +401,7 @@ export default function NavBar() {
                 >
                   {" "}
                   Book a demo
-                </a>
+                </Link>
               </button>
             </div>
           </div>
