@@ -5,7 +5,7 @@ import "./homeTestimonial.scss";
 import { FaAngleRight } from "react-icons/fa";
 import { FaAngleLeft } from "react-icons/fa";
 import { tastimonials } from "../../assets/tastimonials";
-
+import { FaQuoteLeft } from "react-icons/fa";
 // Arrow components
 function SampleNextArrow(props) {
   const { style, onClick } = props;
@@ -49,7 +49,6 @@ export default function HomeTestimonial() {
           slidesToShow: 2,
           slidesToScroll: 2,
           infinite: true,
-          dots: true,
         },
       },
       {
@@ -57,6 +56,7 @@ export default function HomeTestimonial() {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          infinite: true,
         },
       },
     ],
@@ -80,8 +80,8 @@ export default function HomeTestimonial() {
             key={index}
             className="testimonial-item bg-light rounded my-4 mx-2 slider-item"
           >
-            <p className="fs-5">
-              <i className="fa fa-quote-left fa-4x  mt-n4 me-3 testimonialReviewerContent" />
+            <p className="fs-5 testimonialReviewerContent">
+              <FaQuoteLeft className=" fs-1 mt-n4 me-3 " />
               {item.reviewComment}
             </p>
             <div className="d-flex align-items-center">

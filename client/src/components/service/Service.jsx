@@ -1,4 +1,5 @@
 import "./service.scss";
+import { FaArrowRight } from "react-icons/fa6";
 import SectionHeading from "../reuseable/sectionHeading/SectionHeading";
 import { company } from "../../assets/company";
 import { Link } from "react-router-dom";
@@ -35,7 +36,7 @@ export default function Service() {
                       serviceProductDetails: item.desc,
                     }}
                   >
-                    <i className="fa fa-arrow-right" />
+                    <FaArrowRight />
                   </Link>
                 </div>
               </div>

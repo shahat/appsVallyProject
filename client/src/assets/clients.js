@@ -17,17 +17,3 @@ export const clients = [
     clientImages[11],
   ],
 ];
-export const invoicesMarket = [
-  {
-    title: " $300B",
-    content: "Worth e-invoices generated annually",
-  },
-  {
-    title: "125M",
-    content: "e-Invoices generated annually",
-  },
-  {
-    title: "3M",
-    content: "man hours saved per month",
-  },
-];

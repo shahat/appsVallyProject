@@ -2,11 +2,10 @@ import { clients } from "../../assets/clients";
 import "./homeBrands.scss";
 import { facts } from "../../assets/facts";
 import SectionHeading from "../reuseable/sectionHeading/SectionHeading";
+import IconRenderer from "../../assets/IconRender";
 export default function HomeBrands() {
   return (
     <>
-      {/* ====================== Brands carousel  section ====================== */}
-
       <section className="brands" id="clients">
         <SectionHeading content="Trusted by 200+ global brands" />
         <div
@@ -21,7 +20,7 @@ export default function HomeBrands() {
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
                 key={`images1-${index}`}
               >
-                <div className=" carousel-item-Container d-flex justify-content-around align-items-center">
+                <div className=" carousel-item-Container d-flex justify-content-around align-items-center ">
                   {item.map((image, i) => (
                     <div
                       key={`imageContainer-${i}`}
@@ -44,15 +43,19 @@ export default function HomeBrands() {
 
       {/* ====================== Facts ====================== */}
 
-      <section className="companyFacts w-100 mt-5 pt-5" data-aos="fade-up">
-        <div className="factOverlay"></div>
-        <div className="container-xxl  fact py-5 ">
-          <div className="row g-4">
+      <section className="companyFacts w-100 mt-5 " data-aos="fade-up">
+        <div className="factOverlay d-flex align-items-center ">
+          <div className="row w-100 mx-auto ">
             {facts.map((item, index) => (
-              <div key={index} className="col-6 col-lg-3 text-center ">
-                <i className={`${item[2]} fa-2x  text-white mb-3`} />
-                <h3 className="text-white mb-2">{item[1]}</h3>
-                <p className="text-white mb-0">{item[0]}</p>
+              <div
+                key={index}
+                className=" col-6 col-lg-3 text-center text-white"
+              >
+                <span className="fs-1">
+                  <IconRenderer iconName={item[2]} />{" "}
+                </span>
+                <h3 className="mb-2 text-white ">{item[1]}</h3>
+                <p className=" fw-medium">{item[0]}</p>
               </div>
             ))}
           </div>
