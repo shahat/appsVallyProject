@@ -16,12 +16,14 @@ export default function product() {
             </p>
             <SectionHeading content="Our Creative Products" />
           </div>
-          <div className="row g-4  portfolio-container px-md-5">
+          <div
+            className="row g-4  portfolio-container px-md-5"
+            data-aos="fade-up"
+          >
             {company.products.map((item, index) => (
               <div
                 key={"product" + index}
                 className="productCard col-6 col-md-4 portfolio-item first "
-                data-aos="fade-up"
               >
                 <div className="rounded overflow-hidden">
                   <div className="position-relative overflow-hidden">

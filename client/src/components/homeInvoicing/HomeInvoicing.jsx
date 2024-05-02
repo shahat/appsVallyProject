@@ -28,13 +28,9 @@ my-5 py-5 px-5 px-md-5"
         <section className="invoicingContent w-sm-100 col-sm-12 col-md-6 order-3 order-md-2">
           <div className="invoicingPara w-100 d-flex flex-column ">
             {invoiceText.map((item, index) => (
-              <section
-                key={index}
-                className="invoicingParaSec d-flex  "
-                data-aos="fade-right"
-              >
+              <section key={index} className="invoicingParaSec d-flex  ">
                 <div className="m-2">
-                  <GrStatusGood className="text-success  fs-5 " />
+                  <GrStatusGood className="text-success  fs-5" />
                 </div>
                 <p className="fs-5 fs-md-4">{item}</p>
               </section>

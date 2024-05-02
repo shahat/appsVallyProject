@@ -17,7 +17,7 @@ export default function HomeHero() {
           className="heroContent fs-3 flex-2 w-100 w-md-50  "
           data-aos="fade-right"
         >
-          <h2 className=" heroTitle mb-3  ">
+          <h2 className=" text-white mb-3  ">
             <TypeAnimation
               className="fw-bold"
               sequence={[
@@ -34,7 +34,7 @@ export default function HomeHero() {
               repeat={Infinity}
             />
           </h2>
-          <h1 className="heroTitle fw-bold  w-md-75  py-2 ">
+          <h1 className=" fw-bold text-white  w-md-75  py-2 ">
             Seamless Generation Of ZATCA Phase || e-invoices
           </h1>
           <p className="heropara mx-auto mx-md-0 fs-6  w-md-50  ">
