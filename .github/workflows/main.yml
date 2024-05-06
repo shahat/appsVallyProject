@@ -12,7 +12,7 @@ jobs:
       uses: SamKirkland/FTP-Deploy-Action@v4.3.5
       with:
         server: win8034.site4now.net
-        username: ${{ secrets.ftp_userName }}
-        password: ${{ secrets.ftp_password }}
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
         protocol: ftps
         server-dir: /
