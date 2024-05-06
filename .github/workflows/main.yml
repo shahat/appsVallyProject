@@ -14,8 +14,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
-      with:
-        ref: 'production'
     - name: Change to API directory
       run: cd api
     - name: Use Node.js ${{ matrix.node-version }}
