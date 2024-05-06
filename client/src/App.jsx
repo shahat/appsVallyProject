@@ -5,7 +5,6 @@ import "react-toastify/dist/ReactToastify.css";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import "aos/dist/aos.css";
-import "./App.css";
 // =========================== Pages ===========================
 import Home from "./pages/home/Home";
 import Login from "./pages/Login/Login";

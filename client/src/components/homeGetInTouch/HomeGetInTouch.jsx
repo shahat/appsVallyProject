@@ -6,7 +6,7 @@ export default function HomeGetInTouch() {
   return (
     <div className="gitInTouch  my-5 py-5">
       <div className="container-xl ">
-        <SectionHeading content="Boock A Demo" />
+        <SectionHeading content="Book A Demo" />
         <div className="row g-2 justify-content-center justify-content-md-between ">
           <div className=" col-11 col-sm-6 col-md-4 col-md-6 ">
             <p

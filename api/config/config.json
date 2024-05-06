@@ -1,9 +1,9 @@
 {
   "development": {
-    "username": "root",
-    "password": "MRX@space./20150749",
-    "database": "avtax",
-    "host": "localhost",
+    "username": "aa438f_avtax",
+    "password": "Vivo@123",
+    "database": "db_aa438f_avtax",
+    "host": "MYSQL8003.site4now.net",
     "dialect": "mysql"
   },
   "test": {
@@ -14,10 +14,10 @@
     "dialect": "mysql"
   },
   "production": {
-    "username": "root",
-    "password": null,
-    "database": "database_production",
-    "host": "127.0.0.1",
+    "username": "aa438f_avtax",
+    "password": "Vivo@123",
+    "database": "db_aa438f_avtax",
+    "host": " MYSQL8003.site4now.net",
     "dialect": "mysql"
   }
 }

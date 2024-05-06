@@ -7,10 +7,7 @@ import Service from "../service/Service";
 import HomeGetInTouch from "../homeGetInTouch/HomeGetInTouch";
 import HomeTestimonial from "../homeTestimonial/HomeTestimonial";
 // static Data
-import {
-  serviceIntorText,
-  productIntoText,
-} from "../../assets/invoceSectionText";
+import { serviceIntorText } from "../../assets/invoceSectionText";
 export default function HomeInvoicing() {
   return (
     <>
@@ -18,7 +15,7 @@ export default function HomeInvoicing() {
       <ServiceProductItro
         invoiceText={serviceIntorText}
         itemImg={svgImgs.invoice}
-        title="Get Phase II compliant e-invoicing solution"
+        title="Get Phase II Compliant e-invoicing Solution"
       />
       {/* ==============  Products  ==============  */}
       <Product />
@@ -30,7 +27,6 @@ export default function HomeInvoicing() {
         itemImg={svgImgs.softwareIntration}
         title="We Offer Much More"
       />
-
       {/* ==============  services  ==============   */}
       <Service />
       {/* =============== Testimonial  ============  */}

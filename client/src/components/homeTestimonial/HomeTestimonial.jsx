@@ -69,7 +69,7 @@ export default function HomeTestimonial() {
         Testimonial
         <span />
       </p>
-      <SectionHeading content="What Say Our Clients!" />
+      <SectionHeading content="What Our Clients Say !" />
       <Slider
         {...settings}
         className="testimonial-slider d-flex  flex-wrap "

@@ -1,4 +1,4 @@
-import { clients } from "../../assets/clients";
+import { clients, AllClients } from "../../assets/clients";
 import "./homeBrands.scss";
 import { facts } from "../../assets/facts";
 import SectionHeading from "../reuseable/sectionHeading/SectionHeading";
@@ -14,13 +14,13 @@ export default function HomeBrands() {
           data-bs-ride="carousel"
           data-bs-interval="5000"
         >
-          <div className="carousel-inner">
+          <div className="carousel-inner  d-none d-md-block ">
             {clients.map((item, index) => (
               <div
                 className={`carousel-item ${index === 0 ? "active" : ""}`}
                 key={`images1-${index}`}
               >
-                <div className=" carousel-item-Container d-flex justify-content-around align-items-center ">
+                <div className="carousel-item-Container d-flex justify-content-around align-items-center ">
                   {item.map((image, i) => (
                     <div
                       key={`imageContainer-${i}`}
@@ -38,6 +38,21 @@ export default function HomeBrands() {
               </div>
             ))}
           </div>
+
+          <div className="mm container d-flex  d-md-none ">
+            <div className="row g-2">
+              {AllClients.map((image, i) => (
+                <div key={`customerimageContainer-${i}`} className=" col-3">
+                  <img
+                    data-aos="fade-up"
+                    src={image}
+                    className=" w-100 object-fit-cover"
+                    alt="brands"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
@@ -54,7 +69,9 @@ export default function HomeBrands() {
                 <span className="fs-1">
                   <IconRenderer iconName={item[2]} />{" "}
                 </span>
-                <h3 className="mb-2 text-white ">{item[1]}</h3>
+                <h3 className="mb-2 text-white " data-aos="fade-right">
+                  {item[1]}
+                </h3>
                 <p className=" fw-medium">{item[0]}</p>
               </div>
             ))}

@@ -365,7 +365,7 @@ export default function NavBar() {
                               handleLinkClick({
                                 path: `/service/${item.title}`,
                                 state: item.desc,
-                                type: "product",
+                                type: "service",
                               })
                             }
                             data-bs-dismiss="offcanvas"
@@ -400,7 +400,7 @@ export default function NavBar() {
                   aria-label="Close"
                 >
                   {" "}
-                  Book a demo
+                  Home
                 </Link>
               </button>
             </div>
