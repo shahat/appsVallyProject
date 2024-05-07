@@ -27,7 +27,7 @@ jobs:
         run: |
           cd client
           npm run build
-          ls -l build  # Print out the contents of the build directory for debugging
+          echo "Build directory location: $GITHUB_WORKSPACE/client/build"
 
   deploy:
     needs: build
@@ -36,13 +36,10 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Debug build artifacts
-        run: ls -l client/build  # Print out the contents of the build directory again for debugging
-
       - name: Deploy to avtax Server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
           server: win8034.site4now.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./client/build/
+          local-dir: ${{ github.workspace }}/client/build
