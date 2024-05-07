@@ -21,9 +21,13 @@ jobs:
           cache-dependency-path: './client/package-lock.json'
       
       - name: Install dependencies
-        run: cd client && npm i
+        run: cd client && npm ci
+      
       - name: Build frontend
-        run: cd client && npm run build 
+        run: |
+          cd client
+          npm run build
+          ls -l build  # Print out the contents of the build directory for debugging
 
   deploy:
     needs: build
@@ -31,6 +35,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v2
+
+      - name: Debug build artifacts
+        run: ls -l client/build  # Print out the contents of the build directory again for debugging
+
       - name: Deploy to avtax Server
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
