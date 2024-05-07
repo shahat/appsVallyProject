@@ -6,7 +6,6 @@ export default function AdminHome() {
     const getAllcustomers = async () => {
       try {
         const response = await instance.get("/customer/customers");
-        console.log(" customers : ", response.data);
         setCustomers(response.data);
       } catch (error) {
         console.log(error);

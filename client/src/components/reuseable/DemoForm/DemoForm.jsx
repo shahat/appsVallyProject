@@ -26,17 +26,14 @@ export default function DemoForm() {
 
   // Handle form submission
   const handleSubmit = async (e) => {
-    console.log("form data");
     e.preventDefault();
 
     try {
       const response = await instance.post("/customer/", formData);
-      console.log("this is the response ", response);
       if (response.status === 201) {
         toast.success("Customer created successfully");
       }
     } catch (error) {
-      console.log("this is the error ", error);
       toast.error(error.response.data || "An error occurred");
     }
   };
@@ -89,7 +86,6 @@ export default function DemoForm() {
         <select
           name="requiredService"
           className="form-select"
-         
           value={formData.requiredService}
           onChange={handleChange}
           aria-label="Default select example"
