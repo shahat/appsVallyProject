@@ -25,6 +25,8 @@ jobs:
       
       - name: Build frontend
         run: cd client && npm run build
+      - name: Debug Build Directory
+        run: ls -l ./client/
 
   deploy:
     needs: build
