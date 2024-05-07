@@ -21,7 +21,24 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './api/package-lock.json'
     - run: cd api && npm ci
+    - run: tar -czf node_modules.tar.gz node_modules
+    - name: Upload node_modules
+      uses: actions/upload-artifact@v2
+      with:
+        name: node_modules
+        path: node_modules.tar.gz
     - run: cd api && npm run build --if-present
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Download node_modules
+      uses: actions/download-artifact@v2
+      with:
+        name: node_modules
+    - run: tar -xzf node_modules.tar.gz
     - name: Deploy to SmarterASP.NET
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
