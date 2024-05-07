@@ -1,0 +1,50 @@
+name: Node.js CI
+
+on:
+  workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x, 16.x, 18.x]
+
+    steps:
+    - uses: actions/checkout@v4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v3
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: './api/package-lock.json'
+    - run: cd api && npm ci
+    - run: cd api && tar -czf node_modules.tar.gz node_modules
+    - name: Upload node_modules
+      uses: actions/upload-artifact@v2
+      with:
+       name: node_modules
+       path: api/node_modules
+
+    - run: cd api && npm run build --if-present
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Download node_modules
+      uses: actions/download-artifact@v2
+      with:
+        name: node_modules
+        path: api/
+    - run: cd api && tar -xzf node_modules.tar.gz
+    - name: Deploy to SmarterASP.NET
+      uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+      with:
+        server: win8034.site4now.net
+        username: ${{ secrets.FTP_USERNAME }}
+        password: ${{ secrets.FTP_PASSWORD }}
+        local-dir: ./api/
