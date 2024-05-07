@@ -21,7 +21,7 @@ jobs:
         cache: 'npm'
         cache-dependency-path: './api/package-lock.json'
     - run: cd api && npm ci
-    - run: tar -czf node_modules.tar.gz node_modules
+    - run: cd api && tar -czf node_modules.tar.gz node_modules
     - name: Upload node_modules
       uses: actions/upload-artifact@v2
       with:
