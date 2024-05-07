@@ -24,10 +24,8 @@ jobs:
         run: cd client && npm ci
       
       - name: Build frontend
-        run: |
-          cd client
-          npm run build
-          echo "Build directory location: $GITHUB_WORKSPACE/client/build"
+        run: npm run build
+        working-directory: ./client  # Set the working directory for the build command
 
   deploy:
     needs: build
@@ -42,4 +40,4 @@ jobs:
           server: win8034.site4now.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ${{ github.workspace }}/client/build/
+          local-dir: ./client/build/
