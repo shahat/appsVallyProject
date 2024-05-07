@@ -25,7 +25,6 @@ jobs:
       
       - name: Build frontend
         run: cd client && npm run build
-        
 
   deploy:
     needs: build
@@ -40,4 +39,4 @@ jobs:
           server: win8034.site4now.net
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
-          local-dir: ./build/
+          local-dir: ./client/build/
