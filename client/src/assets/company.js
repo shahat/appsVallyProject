@@ -34,6 +34,11 @@ export const company = {
             video:
               "https://www.youtube.com/embed/4W2wqYJb7qQ?list=PL0W5aJNQbXj2rYr3oLkDpZ2ZkV0s6h7y0",
           },
+          {
+            desc: "excel application attachded invoiceing system",
+            video:
+              "https://www.youtube.com/embed/4W2wqYJb7qQ?list=PL0W5aJNQbXj2rYr3oLkDpZ2ZkV0s6h7y0",
+          },
         ],
       },
     },
@@ -103,6 +108,11 @@ export const company = {
       desc: {
         title: "QuixcelInvoiceSystem [ coming soon ]",
         detailsDesc: [
+          {
+            desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iste qui voluptatum unde ipsa! Quod distinctio aut nostrum soluta modi corporis temporibus? Voluptates temporibus ipsum eveniet, facilis magnam corporis commodi!",
+            video:
+              "https://www.youtube.com/embed/jAuPffGbauo?si=BrNbAoyp60GYGZn7",
+          },
           {
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iste qui voluptatum unde ipsa! Quod distinctio aut nostrum soluta modi corporis temporibus? Voluptates temporibus ipsum eveniet, facilis magnam corporis commodi!",
             video:
