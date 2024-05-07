@@ -25,8 +25,9 @@ jobs:
     - name: Upload node_modules
       uses: actions/upload-artifact@v2
       with:
-        name: node_modules
-        path: node_modules.tar.gz
+       name: node_modules
+       path: api/node_modules.tar.gz
+
     - run: cd api && npm run build --if-present
 
   deploy:
@@ -38,7 +39,7 @@ jobs:
       uses: actions/download-artifact@v2
       with:
         name: node_modules
-    - run: tar -czf node_modules.tar.gz/
+    - run: cd api && tar -xzf node_modules.tar.gz
     - name: Deploy to SmarterASP.NET
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
       with:
