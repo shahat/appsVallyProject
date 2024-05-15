@@ -2,14 +2,10 @@ import { productIcons } from "../../public/img/productIcons/productIcons";
 import { aboutCompanyIcons } from "../../public/img/aboutUsIcons/aboutCompanyIcons";
 import { serviceIcons } from "../../public/img/serviceIcon/serviceIcons";
 export const company = {
-  aboutUs: [
-    { img: aboutCompanyIcons.officeImage, title: "Company" },
-    { img: aboutCompanyIcons.serviceImage, title: "Customer" },
-  ],
+  aboutUs: [{ title: "Company" }, { title: "Customer" }],
   // ================================== products ===============================
   products: [
     {
-      img: productIcons.excel,
       title: "Excel eInvoice App",
 
       desc: {
@@ -24,7 +20,6 @@ export const company = {
       },
     },
     {
-      img: productIcons.computer,
       title: "Quickbooks Desktop eInvoice Integration App",
       desc: {
         title: "Quickbooks Desktop eInvoice Integration App",
@@ -43,7 +38,6 @@ export const company = {
       },
     },
     {
-      img: productIcons.appDevelopment,
       title: "Quickbooks Online eInvoice Integration App",
 
       desc: {
@@ -58,10 +52,9 @@ export const company = {
       },
     },
     {
-      img: productIcons.zoho,
-      title: "Zoho",
+      title: "Zoho Books Envoice Apps",
       desc: {
-        title: "Zoho",
+        title: "Zoho Books Envoice Apps",
         detailsDesc: [
           {
             desc: "excel application attachded invoiceing system",
@@ -72,10 +65,9 @@ export const company = {
       },
     },
     {
-      img: productIcons.spreedsheet,
-      title: "Xero",
+      title: "Xero Books Envoice Apps",
       desc: {
-        title: "Xero",
+        title: "Xero Books Envoice Apps",
         detailsDesc: [
           {
             desc: "excel application attachded invoiceing system",
@@ -86,7 +78,6 @@ export const company = {
       },
     },
     {
-      img: productIcons.systemIntegration,
       title: "QuixcelERP, POS and Mobile POS",
       desc: {
         title: "QuixcelERP, POS and Mobile POS",
@@ -103,10 +94,9 @@ export const company = {
   // ================================= company services =================================
   services: [
     {
-      img: serviceIcons.pay,
-      title: "QuixcelInvoiceSystem [ coming soon ]",
+      title: "Quixcel Invoice System",
       desc: {
-        title: "QuixcelInvoiceSystem [ coming soon ]",
+        title: "Quixcel Invoice System",
         detailsDesc: [
           {
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iste qui voluptatum unde ipsa! Quod distinctio aut nostrum soluta modi corporis temporibus? Voluptates temporibus ipsum eveniet, facilis magnam corporis commodi!",
@@ -122,11 +112,9 @@ export const company = {
       },
     },
     {
-      img: serviceIcons.dashboard,
-      title: "Dashboard to monitor invoices & generate reports [ coming soon ]",
+      title: "Dashboard to monitor invoices & generate reports",
       desc: {
-        title:
-          "Dashboard to monitor invoices & generate reports [ coming soon ]",
+        title: "Dashboard to monitor invoices & generate reports",
         detailsDesc: [
           {
             desc: "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptate iste qui voluptatum unde ipsa! Quod distinctio aut nostrum soluta modi corporis temporibus? Voluptates temporibus ipsum eveniet, facilis magnam corporis commodi!",
@@ -137,7 +125,6 @@ export const company = {
       },
     },
     {
-      img: serviceIcons.integration,
       title: "Custom Integration services",
       desc: {
         title: "Custom Integration services",
@@ -151,7 +138,6 @@ export const company = {
       },
     },
     {
-      img: serviceIcons.api,
       title: "API services for ETA, ZATCA, and JOFOTARA",
       desc: {
         title: "API services for ETA, ZATCA, and JOFOTARA",

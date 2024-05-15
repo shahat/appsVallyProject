@@ -30,7 +30,7 @@ export default function HomeInvoicing() {
       {/* ==============  services  ==============   */}
       <Service />
       {/* =============== Testimonial  ============  */}
-      <HomeTestimonial />
+      {/* <HomeTestimonial /> */}
       {/* =============== Git in touch ============= */}
       <HomeGetInTouch />
     </>
